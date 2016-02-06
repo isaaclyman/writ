@@ -1,0 +1,65 @@
+<html ng-app="writ">
+<head>
+<!-- Library styles -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+<!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800italic,800' rel='stylesheet' type='text/css'>
+    
+<!-- Local styles -->
+    <link rel="stylesheet" href="./app.css">
+    
+<!-- Library scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    
+<!-- Local scripts -->
+    <script src="./app.js"></script>
+    <script src="./Views/Overview/overviewController.js"></script>
+    <script src="./Views/Research/researchController.js"></script>
+    <script src="./Views/Settings/settingsController.js"></script>
+    <script src="./Views/Snippets/snippetsController.js"></script>
+</head>
+<body flex layout="column" ng-controller="app as app">
+    <md-toolbar class="md-primary wr_title">
+        <div class="md-toolbar-tools">
+            <h2 flex>writ</h2>
+            <md-button class="md-primary" aria-label="settings" ng-click="app.openSettings()">
+                <md-icon> settings </md-icon>
+                Settings
+            </md-button>
+            <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" aria-label="options" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-menu-origin> menu </md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="">
+                            <md-icon md-menu-align-target> save </md-icon>
+                            Save Everything
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="">
+                            <md-icon> help </md-icon>
+                            Help
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab ng-repeat="tab in app.mainTabs" ng-click="app.openTab(tab)" ng-attr-label="{{tab.name}}" md-active="app.isActive(tab.route)">
+        </md-tab>
+        <md-tab ng-if="app.isActive('/settings')" md-active="app.isActive('/settings')" label="Settings"></md-tab>
+    </md-tabs>
+    <md-content ng-view></md-content>
+</body>
+
+</html>

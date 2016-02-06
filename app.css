@@ -1,0 +1,11 @@
+md-toolbar.wr_title h2 {
+    color: white;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 28px;
+    font-weight:800;
+    cursor: default;
+}
+
+md-toolbar.wr_title button span, md-toolbar.wr_title button md-icon {
+    color: white;
+}
