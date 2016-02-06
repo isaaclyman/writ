@@ -24,6 +24,8 @@
     <script src="./Views/Research/researchController.js"></script>
     <script src="./Views/Settings/settingsController.js"></script>
     <script src="./Views/Snippets/snippetsController.js"></script>
+    <script src="./Services/dataStore.js"></script>
+    <script src="./Views/AboutDialog/aboutDialogController.js"></script>
 </head>
 <body flex layout="column" ng-controller="app as app">
     <md-toolbar class="md-primary wr_title">
@@ -39,15 +41,15 @@
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
-                        <md-button ng-click="">
+                        <md-button ng-click="app.data.save($event)">
                             <md-icon md-menu-align-target> save </md-icon>
                             Save Everything
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="">
-                            <md-icon> help </md-icon>
-                            Help
+                            <md-icon> favorite </md-icon>
+                            About Writ
                         </md-button>
                     </md-menu-item>
                 </md-menu-content>

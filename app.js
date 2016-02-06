@@ -36,11 +36,12 @@ module.config(['$routeProvider', function($routeProvider) {
               ]);
 
 module.controller('app', [
-    '$location', '$mdDialog',
-    function ($location, $mdDialog) {
+    '$location', '$mdDialog', 'dataStore',
+    function ($location, $mdDialog, dataStore) {
         var app = this;
         
         app.location = $location;
+        app.data = dataStore;
 
         app.mainTabs = [{
             name: 'Snippets',
