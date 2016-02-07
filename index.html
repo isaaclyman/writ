@@ -6,6 +6,7 @@
     
 <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
     
 <!-- Local styles -->
     <link rel="stylesheet" href="./app.css">
@@ -25,6 +26,7 @@
     <script src="./Views/Settings/settingsController.js"></script>
     <script src="./Views/Snippets/snippetsController.js"></script>
     <script src="./Services/dataStore.js"></script>
+    <script src="./Views/SaveDialog/saveDialogController.js"></script>
     <script src="./Views/AboutDialog/aboutDialogController.js"></script>
 </head>
 <body flex layout="column" ng-controller="app as app">
@@ -41,13 +43,13 @@
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
-                        <md-button ng-click="app.data.save($event)">
+                        <md-button ng-click="app.save($event)">
                             <md-icon md-menu-align-target> save </md-icon>
                             Save Everything
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
-                        <md-button ng-click="">
+                        <md-button ng-click="app.about($event)">
                             <md-icon> favorite </md-icon>
                             About Writ
                         </md-button>
@@ -61,7 +63,7 @@
         </md-tab>
         <md-tab ng-if="app.isActive('/settings')" md-active="app.isActive('/settings')" label="Settings"></md-tab>
     </md-tabs>
-    <md-content ng-view></md-content>
+    <md-content flex ng-view ng-class="app.$rootScope.pageClass"></md-content>
 </body>
 
 </html>

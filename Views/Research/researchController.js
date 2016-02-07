@@ -3,6 +3,6 @@ angular.module('writ')
     function () {
         var ctrl = this;
         
-        
+        ctrl.appData = dataStore.data;
 }
                                   ]);

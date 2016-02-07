@@ -1,11 +1,57 @@
+/* Shared styles */
+
+html, body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+a:link {
+    color: black;
+}
+
+a:active {
+    color: lightgray;
+}
+
+a:visited {
+    color: gray;
+}
+
+md-card > md-input-container, md-card > div, md-card > p {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+md-card md-card-header {
+    padding: 16px 1px;
+}
+
+.icon-14px {
+    width: 18px;
+    font-size: 14px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* Toolbar */
+
 md-toolbar.wr_title h2 {
-    color: white;
     font-family: 'Alegreya Sans', sans-serif;
     font-size: 28px;
     font-weight:800;
     cursor: default;
 }
 
-md-toolbar.wr_title button span, md-toolbar.wr_title button md-icon {
-    color: white;
+/* Content */
+md-content[ng-view] {
+    padding: 0 16px;
+    background-color: #FAFAFA;
+}
+
+/* Snippets */
+
+.wr_snippet-card_comments {
+    font-size: 14px;
+    color: #AAA;
 }

@@ -1,0 +1,23 @@
+<md-dialog aria-label="About Writ">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>About Writ v0.1</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                <md-icon> close </md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <h2>Thanks for using writ.</h2>
+            <p>This app is the brainchild of <a href="http://isaaclyman.com">Isaac Lyman</a> & friends. It's released under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Construction began on February 5, 2016.</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="ctrl.sayHello()">
+            Say hello!
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

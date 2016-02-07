@@ -7,13 +7,7 @@ angular.module('writ')
         factory.data = {};
 
         factory.save = function () {
-            $mdDialog.show({
-                controller: 'AboutDialogController',
-                controllerAs: 'ctrl',
-                templateUrl: './Views/AboutDialog/aboutDialog.html',
-            }).then(function () {
-                // Save everything
-            });
+            // Save all data as JSON
         };
 
         return factory;

@@ -1,1 +1,42 @@
-Snippets
+<h2>Snippets</h2>
+<h5>A place for sentences, quotes or paragraphs that aren't ready for inclusion yet.</h5>
+<div flex layout="row" layout-wrap>
+    <md-card ng-repeat="snippet in ctrl.appData.snippets" class="wr_snippet-card" layout="column" flex-xs flex-gt-xs="45" flex-gt-md="30">
+        <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools">
+                <span flex ng-bind="snippet.name"></span>
+                <md-button class="md-icon-button" ng-click="ctrl.delete(snippet, $event)">
+                    <md-icon> delete </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <div layout="row" layout-align="start start">
+            <md-icon class="icon-14px"> format_quote </md-icon>
+            <p flex ng-bind="snippet.text"></p>
+        </div>
+        <p class="wr_snippet-card_comments" ng-bind="snippet.comments"></p>    
+    </md-card>
+    <md-card class="wr_snippet-card" layout="column" flex-xs flex-gt-xs="45" flex-gt-md="30">
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools">
+                <span flex>New Snippet</span>
+            </div>
+        </md-toolbar>
+        <md-input-container flex>
+            <label>Name (optional)</label>
+            <input ng-model="ctrl.newSnippet.name">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Snippet</label>
+            <textarea ng-model="ctrl.newSnippet.text" rows="6"></textarea>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Comments (optional)</label>
+            <input ng-model="ctrl.newSnippet.comments">
+        </md-input-container>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="ctrl.discardNewSnippet()">Discard</md-button>
+            <md-button ng-disabled="!ctrl.newSnippet.comments && !ctrl.newSnippet.text" ng-click="ctrl.saveNewSnippet()">Save</md-button>
+        </md-card-actions>
+    </md-card>
+</div>
