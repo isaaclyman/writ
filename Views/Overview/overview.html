@@ -1,1 +1,16 @@
-Overview
+<h2>Overview</h2>
+<h5>The blueprint for your writing.</h5>
+<md-card>
+    <md-card-content flex>
+        <h3>Tweetable summary</h3>
+        <p>Summarize your work in 140 characters or less.</p>
+        <md-input-container class="block">
+            <label>Summary</label>
+            <textarea flex ng-model="ctrl.appData.overview.tweetable" md-maxlength="140" maxlength="140"></textarea>
+        </md-input-container>
+        <md-button target="_blank" class="md-button md-primary md-raised" href="https://twitter.com/intent/tweet?text={{ctrl.appData.overview.tweetable}}">
+            <md-icon> share </md-icon>
+            Tweet this
+        </md-button>
+    </md-card-content>
+</md-card>

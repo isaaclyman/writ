@@ -37,6 +37,19 @@ textarea.md-input {
     overflow-y: auto;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #CCC;
+    border-radius: 4px;
+}
+
+.block {
+    display: block;
+}
+
 .icon-20px {
     padding-top: 2px;
     width: 23px;

@@ -20,9 +20,9 @@ module.config([
     '$routeProvider',
     function($routeProvider, $rootScope) {
         $routeProvider
-        .when('/', {
-            templateUrl: './Views/Snippets/snippets.html',
-            controller: 'SnippetsController',
+        .when('/overview', {
+            templateUrl: './Views/Overview/overview.html',
+            controller: 'OverviewController',
             controllerAs: 'ctrl'
         })
         .when('/research', {
@@ -30,9 +30,9 @@ module.config([
             controller: 'ResearchController',
             controllerAs: 'ctrl'
         })
-        .when('/overview', {
-            templateUrl: './Views/Overview/overview.html',
-            controller: 'OverviewController',
+        .when('/snippets', {
+            templateUrl: './Views/Snippets/snippets.html',
+            controller: 'SnippetsController',
             controllerAs: 'ctrl'
         })
         .when('/settings', {
@@ -40,7 +40,7 @@ module.config([
             controller: 'SettingsController',
             controllerAs: 'ctrl'
         })
-        .otherwise('/');
+        .otherwise('/overview');
     }
             ]);
 
@@ -55,14 +55,14 @@ module.controller('app', [
         app.data = dataStore;
 
         app.mainTabs = [{
+            name: 'Overview',
+            route: '/overview'
+        },{
             name: 'Snippets',
-            route: '/'
+            route: '/snippets'
         },{
             name: 'Research',
             route: '/research'
-        },{
-            name: 'Overview',
-            route: '/overview'
         }];
         
         app.save = function (event) {
