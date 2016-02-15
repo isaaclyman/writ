@@ -10,14 +10,15 @@
     </md-toolbar>
     <md-dialog-content>
         <div class="md-dialog-content">
-            <h2>We're working on this feature.</h2>
-            <p>Rest assured that it's our top priority. In the meanwhile, enjoy this public beta.</p>
+            <h2>Back up your work frequently.</h2>
+            <p>Click this link to download everything you've done so far.</p>
+            <a ng-if="ctrl.saveLink" ng-href="{{ctrl.saveLink}}" download="writ_{{ctrl.dateString}}.json">Download backup</a>
         </div>
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>
-        <md-button ng-click="ctrl.cancel()">
-            Okay
+        <md-button ng-click="ctrl.accept()">
+            Done
         </md-button>
     </md-dialog-actions>
 </md-dialog>

@@ -2,7 +2,7 @@
 
 var module = angular.module('writ', ['ngMaterial', 'ngRoute']);
 
-module.config(['$mdThemingProvider', function($mdThemingProvider) {
+module.config(['$mdThemingProvider', '$compileProvider', function($mdThemingProvider, $compileProvider) {
     $mdThemingProvider.definePalette('amber-light',         $mdThemingProvider.extendPalette('amber', {
             contrastDefaultColor: 'light'
         })
@@ -13,7 +13,10 @@ module.config(['$mdThemingProvider', function($mdThemingProvider) {
         .accentPalette('blue')
         .warnPalette('purple')
         .backgroundPalette('grey');
-    }
+    
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|data):/);
+    
+    }    
               ]);
 
 module.config([
@@ -40,7 +43,7 @@ module.config([
             controller: 'SettingsController',
             controllerAs: 'ctrl'
         })
-        .otherwise('/overview');
+        .otherwise('/settings');
     }
             ]);
 
@@ -72,8 +75,6 @@ module.controller('app', [
                 templateUrl: './Views/SaveDialog/saveDialog.html',
                 targetEvent: event,
                 clickOutsideToClose: true
-            }).then(function () {
-                dataStore.save();
             });
         };
         

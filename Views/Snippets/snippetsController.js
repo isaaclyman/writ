@@ -4,8 +4,6 @@ angular.module('writ')
     function (dataStore, $mdDialog) {
         var ctrl = this;
         
-        dataStore.data.snippets = dataStore.data.snippets || [];
-        
         ctrl.appData = dataStore.data;
         
         ctrl.showAddSnippet = false;
@@ -24,7 +22,7 @@ angular.module('writ')
         ctrl.delete = function (snippet, $event) {
             $mdDialog.show($mdDialog.confirm({
                 title: 'Delete this snippet?',
-                textContent: 'This action cannot be undone',
+                textContent: 'This action cannot be undone.',
                 ariaLabel: 'Confirm snippet deletion',
                 targetEvent: $event,
                 ok: 'Delete',

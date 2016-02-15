@@ -41,30 +41,20 @@
 <body flex layout="column" ng-controller="app as app">
     <md-toolbar class="md-primary wr_title">
         <div class="md-toolbar-tools">
-            <h2 flex>writ</h2>
-            <md-button class="md-primary" aria-label="settings" ng-click="app.openSettings()">
-                <md-icon> settings </md-icon>
-                Settings
+            <h2>writ</h2>
+            <span flex></span>
+            <md-button class="md-raised md-warn" aria-label="Save everything" ng-click="app.save($event)">
+                <md-icon> save </md-icon>
+                Save
             </md-button>
-            <md-menu md-position-mode="target-right target">
-                <md-button class="md-icon-button" aria-label="options" ng-click="$mdOpenMenu($event)">
-                    <md-icon md-menu-origin> menu </md-icon>
-                </md-button>
-                <md-menu-content width="4">
-                    <md-menu-item>
-                        <md-button ng-click="app.save($event)">
-                            <md-icon md-menu-align-target> save </md-icon>
-                            Save Everything
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-click="app.about($event)">
-                            <md-icon> favorite </md-icon>
-                            About Writ
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
+            <md-button class="md-icon-button" aria-label="settings" ng-click="app.openSettings()">
+                <md-tooltip>Settings</md-tooltip>
+                <md-icon> settings </md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="app.about($event)">
+                <md-tooltip>About</md-tooltip>
+                <md-icon> favorite </md-icon>
+            </md-button>
         </div>
     </md-toolbar>
     <md-tabs md-dynamic-height md-border-bottom>

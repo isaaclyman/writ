@@ -1,13 +1,24 @@
 angular.module('writ')
 .factory('dataStore', [
-    '$mdDialog',
-    function ($mdDialog) {
+    '$mdDialog', '$window',
+    function ($mdDialog, $window) {
         var factory = {};
+        var prefix = 'data:application/json,';
 
-        factory.data = {};
+        factory.data = {
+            overview: {},
+            snippets: [],
+            research: {}
+        };
 
-        factory.save = function () {
-            // Save all data as JSON
+        factory.createSaveFile = function () {
+            var data = $window.JSON.stringify(factory.data);
+            
+            return prefix + $window.encodeURIComponent(data);
+        };
+        
+        factory.loadSaveFile = function (file) {
+            factory.data = $window.decodeURIComponent(file.substring(prefix.length));
         };
 
         return factory;

@@ -50,6 +50,19 @@ textarea.md-input {
     display: block;
 }
 
+.body-text {
+    font-size: 14px;
+    line-height: 1.2em;
+}
+
+.serif {
+    font-family: 'Lora', serif;
+}
+
+.pad-bottom {
+    padding-bottom: 10px;
+}
+
 .icon-20px {
     padding-top: 2px;
     width: 23px;
@@ -58,6 +71,7 @@ textarea.md-input {
 
 .icon-light {
     color: lightgray;
+    font-family: 'Lora', serif;
 }
 
 .inline-block {
@@ -86,6 +100,10 @@ md-content[ng-view] {
     padding: 3px 10px;
 }
 
+.wr_snippets-list md-list-item.wr_snippets__new-snippet {
+    padding: 16px 10px;
+}
+
 .wr_snippets-list div.md-list-item-text {
     max-width: 100%;
     white-space: pre-wrap;
@@ -105,6 +123,8 @@ md-content[ng-view] {
     margin: 0;
 }
 
-.wr_snippets-list div.md-list-item-text h4 {
-    font-family: 'Lora', serif;
+/* Overview */
+
+.wr_overview__tweetable {
+    margin-bottom: 20px;
 }

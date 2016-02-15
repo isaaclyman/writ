@@ -8,18 +8,21 @@
                 <div layout="row" layout-align="start center">
                     <p ng-bind="snippet.name"></p>
                     <span flex></span>
-                    <md-button class="md-icon-button" aria-label="Edit snippet" ng-click="ctrl.edit(snippet)">
+                    <md-button class="md-raised md-icon-button" aria-label="Edit snippet" ng-click="ctrl.edit(snippet)">
+                        <md-tooltip>Edit</md-tooltip>
                         <md-icon> edit </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" aria-label="Delete snippet" ng-click="ctrl.delete(snippet, $event)">
+                    <md-button class="md-raised md-icon-button" aria-label="Delete snippet" ng-click="ctrl.delete(snippet, $event)">
+                        <md-tooltip>Delete</md-tooltip>
                         <md-icon> delete </md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="snippet.showExpanded = !snippet.showExpanded" aria-label="Expand snippet">
+                    <md-button class="md-raised md-icon-button" ng-click="snippet.showExpanded = !snippet.showExpanded" aria-label="Expand snippet">
+                        <md-tooltip>Expand</md-tooltip>
                         <md-icon ng-if="!snippet.showExpanded"> expand_more </md-icon>
                         <md-icon ng-if="snippet.showExpanded"> expand_less </md-icon>
                     </md-button>
                 </div>
-                <h4>
+                <h4 class="serif">
                     <span class="icon-light icon-20px" ng-if="!snippet.showExpanded"> &para; </span>
                     <span class="wr_snippets-list__text" ng-bind="snippet.text"></span>
                 </h4>
@@ -27,7 +30,7 @@
             </div>
         </md-list-item>
         <md-divider></md-divider>
-        <md-list-item class="md-1-line" layout="row" layout-align="start start">
+        <md-list-item class="md-1-line wr_snippets__new-snippet" layout="row" layout-align="start start">
             <md-button class="md-primary" ng-click="ctrl.showAddSnippet = true" ng-if="!ctrl.showAddSnippet">
                 <div layout="row" layout-align="start center">
                     <md-icon> add </md-icon>
@@ -41,15 +44,16 @@
                 </md-input-container>
                 <md-input-container>
                     <label>Text</label>
-                    <textarea rows="10" ng-model="ctrl.newSnippet.text"></textarea>
+                    <textarea ng-model="ctrl.newSnippet.text"></textarea>
                 </md-input-container>
                 <md-input-container>
                     <label>Comments (optional)</label>
                     <input ng-model="ctrl.newSnippet.comments">
                 </md-input-container>
-                <div layout="row" layout-align="end center" layout-margin>
-                    <md-button class="md-primary" ng-click="ctrl.discardNewSnippet()">Discard</md-button>
-                    <md-button class="md-warn" ng-disabled="!ctrl.newSnippet.text" ng-click="ctrl.saveNewSnippet()">Save</md-button>
+                <div flex layout="row">
+                    <span flex></span>
+                    <md-button class="md-raised md-primary" ng-click="ctrl.discardNewSnippet()">Discard</md-button>
+                    <md-button class="md-raised md-warn" ng-show="ctrl.newSnippet.text" ng-click="ctrl.saveNewSnippet()">Save</md-button>
                 </div>
             </form>
         </md-list-item>
