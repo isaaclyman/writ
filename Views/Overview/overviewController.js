@@ -6,6 +6,7 @@ angular.module('writ')
         
         ctrl.appData = dataStore.data;
         
+        ctrl.editTitle = !dataStore.data.overview.title;
         ctrl.editTweetable =
             !dataStore.data.overview.tweetable;
         ctrl.editJacket = !dataStore.data.overview.jacket;
