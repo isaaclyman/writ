@@ -10,8 +10,8 @@ module.config(['$mdThemingProvider', function($mdThemingProvider) {
     
     $mdThemingProvider.theme('default')
         .primaryPalette('amber-light')
-        .accentPalette('red')
-        .warnPalette('deep-orange')
+        .accentPalette('blue')
+        .warnPalette('purple')
         .backgroundPalette('grey');
     }
               ]);

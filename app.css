@@ -4,6 +4,14 @@ html, body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+h3 {
+    margin: 0;
+}
+
+md-list {
+    padding: 0;
+}
+
 a:link {
     color: black;
 }
@@ -25,9 +33,18 @@ md-card md-card-header {
     padding: 16px 1px;
 }
 
-.icon-14px {
-    width: 18px;
-    font-size: 14px;
+textarea.md-input {
+    overflow-y: auto;
+}
+
+.icon-20px {
+    padding-top: 2px;
+    width: 23px;
+    font-size: 20px;
+}
+
+.icon-light {
+    color: lightgray;
 }
 
 .inline-block {
@@ -44,6 +61,7 @@ md-toolbar.wr_title h2 {
 }
 
 /* Content */
+
 md-content[ng-view] {
     padding: 0 16px;
     background-color: #FAFAFA;
@@ -51,7 +69,29 @@ md-content[ng-view] {
 
 /* Snippets */
 
-.wr_snippet-card_comments {
-    font-size: 14px;
-    color: #AAA;
+.wr_snippets-list md-list-item {
+    padding: 3px 10px;
+}
+
+.wr_snippets-list div.md-list-item-text {
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+
+.wr_snippets-list div.md-list-item-text.show-expanded {
+    cursor: text;
+}
+
+.wr_snippets-list div.md-list-item-text.show-expanded .wr_snippets-list__text {
+    overflow: auto;
+    white-space: pre-line;
+}
+
+.wr_snippets-list div.md-list-item-text p, .wr_snippets-list div.md-list-item-text h4 {
+    padding: 6px 0;
+    margin: 0;
+}
+
+.wr_snippets-list div.md-list-item-text h4 {
+    font-family: 'Lora', serif;
 }

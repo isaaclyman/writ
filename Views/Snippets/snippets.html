@@ -1,42 +1,57 @@
 <h2>Snippets</h2>
 <h5>A place for sentences, quotes or paragraphs that aren't ready for inclusion yet.</h5>
-<div flex layout="row" layout-wrap>
-    <md-card ng-repeat="snippet in ctrl.appData.snippets" class="wr_snippet-card" layout="column" flex-xs flex-gt-xs="45" flex-gt-md="30">
-        <md-toolbar class="md-primary">
-            <div class="md-toolbar-tools">
-                <span flex ng-bind="snippet.name"></span>
-                <md-button class="md-icon-button" ng-click="ctrl.delete(snippet, $event)">
-                    <md-icon> delete </md-icon>
-                </md-button>
+<md-card>
+    <md-list class="wr_snippets-list">
+        <md-list-item class="md-3-line" ng-repeat="snippet in ctrl.appData.snippets" layout-align="start start">
+            <md-divider></md-divider>
+            <div class="md-list-item-text" ng-class="{ 'show-expanded': snippet.showExpanded }" flex layout="column">
+                <div layout="row" layout-align="start center">
+                    <p ng-bind="snippet.name"></p>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Edit snippet" ng-click="ctrl.edit(snippet)">
+                        <md-icon> edit </md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Delete snippet" ng-click="ctrl.delete(snippet, $event)">
+                        <md-icon> delete </md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="snippet.showExpanded = !snippet.showExpanded" aria-label="Expand snippet">
+                        <md-icon ng-if="!snippet.showExpanded"> expand_more </md-icon>
+                        <md-icon ng-if="snippet.showExpanded"> expand_less </md-icon>
+                    </md-button>
+                </div>
+                <h4>
+                    <span class="icon-light icon-20px" ng-if="!snippet.showExpanded"> &para; </span>
+                    <span class="wr_snippets-list__text" ng-bind="snippet.text"></span>
+                </h4>
+                <p ng-bind="snippet.comments"></p>
             </div>
-        </md-toolbar>
-        <div layout="row" layout-align="start start">
-            <md-icon class="icon-14px"> format_quote </md-icon>
-            <p flex ng-bind="snippet.text"></p>
-        </div>
-        <p class="wr_snippet-card_comments" ng-bind="snippet.comments"></p>    
-    </md-card>
-    <md-card class="wr_snippet-card" layout="column" flex-xs flex-gt-xs="45" flex-gt-md="30">
-        <md-toolbar class="md-accent">
-            <div class="md-toolbar-tools">
-                <span flex>New Snippet</span>
-            </div>
-        </md-toolbar>
-        <md-input-container flex>
-            <label>Name (optional)</label>
-            <input ng-model="ctrl.newSnippet.name">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Snippet</label>
-            <textarea ng-model="ctrl.newSnippet.text" rows="6"></textarea>
-        </md-input-container>
-        <md-input-container flex>
-            <label>Comments (optional)</label>
-            <input ng-model="ctrl.newSnippet.comments">
-        </md-input-container>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="ctrl.discardNewSnippet()">Discard</md-button>
-            <md-button ng-disabled="!ctrl.newSnippet.comments && !ctrl.newSnippet.text" ng-click="ctrl.saveNewSnippet()">Save</md-button>
-        </md-card-actions>
-    </md-card>
-</div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item class="md-1-line" layout="row" layout-align="start start">
+            <md-button class="md-primary" ng-click="ctrl.showAddSnippet = true" ng-if="!ctrl.showAddSnippet">
+                <div layout="row" layout-align="start center">
+                    <md-icon> add </md-icon>
+                    <h3>Add Snippet</h3>
+                </div>
+            </md-button>
+            <form ng-if="ctrl.showAddSnippet" flex="grow" layout="column" layout-margin>
+                <md-input-container flex>
+                    <label>Name (optional)</label>
+                    <input flex ng-model="ctrl.newSnippet.name">
+                </md-input-container>
+                <md-input-container>
+                    <label>Text</label>
+                    <textarea rows="5" ng-model="ctrl.newSnippet.text"></textarea>
+                </md-input-container>
+                <md-input-container>
+                    <label>Comments (optional)</label>
+                    <input ng-model="ctrl.newSnippet.comments">
+                </md-input-container>
+                <div layout="row" layout-align="end center" layout-margin>
+                    <md-button class="md-primary" ng-click="ctrl.discardNewSnippet()">Discard</md-button>
+                    <md-button class="md-warn" ng-disabled="!ctrl.newSnippet.text" ng-click="ctrl.saveNewSnippet()">Save</md-button>
+                </div>
+            </form>
+        </md-list-item>
+    </md-list>
+</md-card>
