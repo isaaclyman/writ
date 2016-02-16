@@ -1,6 +1,7 @@
 angular.module('writ')
 .controller('ResearchController', [
-    function () {
+    'dataStore',
+    function (dataStore) {
         var ctrl = this;
         
         ctrl.appData = dataStore.data;

@@ -41,7 +41,7 @@
                 <md-icon> save </md-icon>
             </md-button>
         </div>
-        <p>Summarize the work in 140 characters or less.</p>
+        <p>Summarize the <writ-work></writ-work> in 140 characters or less.</p>
         <md-input-container class="block" ng-if="ctrl.editTweetable">
             <label>Tweetable</label>
             <textarea flex ng-model="ctrl.appData.overview.tweetable" md-maxlength="140" maxlength="140"></textarea>
@@ -72,7 +72,7 @@
                 <md-icon> save </md-icon>
             </md-button>
         </div>
-        <p>Give a half-page summary of the work.</p>
+        <p>Give a half-page summary of the <writ-work></writ-work>.</p>
         <md-input-container class="block" ng-if="ctrl.editJacket">
             <label>Jacket</label>
             <textarea flex ng-model="ctrl.appData.overview.jacket"></textarea>
@@ -99,7 +99,7 @@
                 <md-icon> save </md-icon>
             </md-button>
         </div>
-        <p>Summarize all the major points of the work.</p>
+        <p>Summarize all the major points of the <writ-work></writ-work>.</p>
         <md-input-container class="block" ng-if="ctrl.editFullSummary">
             <label>Summary</label>
             <textarea flex ng-model="ctrl.appData.overview.full"></textarea>

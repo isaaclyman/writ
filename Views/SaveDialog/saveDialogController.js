@@ -5,7 +5,7 @@ angular.module('writ')
         var ctrl = this;
         var now = new Date();
         
-        ctrl.dateString = now.getDate() + '-' + now.getMonth() + '-' + now.getFullYear();
+        ctrl.dateString = now.getMonth() + '-' + now.getDate() + '-' + now.getFullYear();
         ctrl.saveLink = dataStore.createSaveFile();
         
         ctrl.accept = function () {

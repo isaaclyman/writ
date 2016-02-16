@@ -37,15 +37,19 @@
     <script src="./Services/dataStore.js"></script>
     <script src="./Views/SaveDialog/saveDialogController.js"></script>
     <script src="./Views/AboutDialog/aboutDialogController.js"></script>
+    
+<!-- Directives -->
+    <script src="./Directives/writWorkDirective.js"></script>
+    
 </head>
 <body flex layout="column" ng-controller="app as app">
     <md-toolbar class="md-primary wr_title">
         <div class="md-toolbar-tools">
             <h2>writ</h2>
             <span flex></span>
-            <md-button class="md-raised md-warn" aria-label="Save everything" ng-click="app.save($event)">
+            <md-button class="md-raised md-warn md-icon-button" aria-label="Save everything" ng-click="app.save($event)">
+                <md-tooltip>Save everything</md-tooltip>
                 <md-icon> save </md-icon>
-                Save
             </md-button>
             <md-button class="md-icon-button" aria-label="settings" ng-click="app.openSettings()">
                 <md-tooltip>Settings</md-tooltip>

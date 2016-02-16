@@ -8,7 +8,8 @@ angular.module('writ')
         factory.data = {
             overview: {},
             snippets: [],
-            research: {}
+            research: {},
+            settings: {}
         };
 
         factory.createSaveFile = function () {
