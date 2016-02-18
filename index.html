@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     
 <!-- Library styles -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 <!-- Fonts -->
@@ -26,7 +26,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
     
 <!-- Local scripts -->
     <script src="./app.js"></script>
@@ -67,6 +67,24 @@
         <md-tab ng-if="app.isActive('/settings')" md-active="app.isActive('/settings')" label="Settings"></md-tab>
     </md-tabs>
     <md-content flex ng-view ng-class="app.$rootScope.pageClass"></md-content>
+    
+    <md-fab-speed-dial class="md-scale wr_main-fab" md-direction="up" md-open="app.fabIsOpen" ng-mouseenter="app.fabIsOpen = true" ng-mouseleave="app.fabIsOpen = false">
+        <md-fab-trigger>
+            <md-button class="md-fab" aria-label="tools">
+                <md-icon> edit </md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+            <md-button class="md-fab md-raised md-primary md-mini" aria-label="Dictionary and thesaurus">
+                <md-tooltip md-direction="left">Dictionary/Thesaurus</md-tooltip>
+                <md-icon> font_download </md-icon>
+            </md-button>
+            <md-button class="md-fab md-raised md-primary md-mini" aria-label="Instant idea">
+                <md-tooltip md-direction="left">Instant idea</md-tooltip>
+                <md-icon> lightbulb_outline </md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-fab-speed-dial>
 </body>
 
 </html>

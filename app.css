@@ -94,6 +94,13 @@ md-content[ng-view] {
     background-color: #FAFAFA;
 }
 
+/* Main FAB */
+.wr_main-fab {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
 /* Snippets */
 
 .wr_snippets-list md-list-item {

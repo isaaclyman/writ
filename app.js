@@ -43,6 +43,11 @@ module.config([
             controller: 'SettingsController',
             controllerAs: 'ctrl'
         })
+        .when('/activities', {
+            templateUrl: './Views/Activities/activities.html',
+            controller: 'ActivitiesController',
+            controllerAs: 'ctrl'
+        })
         .otherwise('/settings');
     }
             ]);
@@ -56,6 +61,8 @@ module.controller('app', [
         
         app.location = $location;
         app.data = dataStore;
+        
+        app.fabIsOpen = false;
 
         app.mainTabs = [{
             name: 'Overview',
@@ -66,6 +73,9 @@ module.controller('app', [
         },{
             name: 'Research',
             route: '/research'
+        },{
+            name: 'Activities',
+            route: '/activities'
         }];
         
         app.save = function (event) {
