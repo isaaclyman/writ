@@ -2,6 +2,16 @@
 
 html, body {
     font-family: 'Noto Sans', sans-serif;
+    background-color: #FAFAFA;
+}
+
+md-content > * {
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+h2 + h5 {
+    margin-bottom: 20px;
 }
 
 h3 {
